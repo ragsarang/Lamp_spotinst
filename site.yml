@@ -4,4 +4,8 @@
   remote_user: root
 
   roles:
+    - php
+    - httpd
     - wordpress
+    - ami
+    - spotinst

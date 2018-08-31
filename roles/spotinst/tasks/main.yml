@@ -32,7 +32,7 @@
           load_balancers: 
             - ELB-sigmoid-lamp
           target_group_arns:
-            - 'arn:aws:elasticloadbalancing:us-east-1:410187619183:targetgroup/sigmoid-webservers/3c6ff47cfee5a11f'
+            - "arn:aws:elasticloadbalancing:us-east-1:410187619183:targetgroup/sigmoid-webservers/3c6ff47cfee5a11f"
           security_group_ids:
             - sg-0e97d674288fe6447
           spot_instance_types:
