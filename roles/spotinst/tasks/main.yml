@@ -1,0 +1,72 @@
+- hosts: localhost
+  tasks:
+    - name: create elastigroup
+      spotinst_aws_elastigroup:
+          token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6OTYyOCwib2lkIjo2MDYwNzk4NjgxMzgsInJvbGUiOjIsImV4cCI6MTUzNTcyMzEwOCwiaWF0IjoxNTM1NzE1OTA4fQ.7xsYohg-J5qYETMfAC_MynLtmRMbNui9a7xXIhgMUiQ'
+          account_id: act-8b4f6c91
+          state: present
+          risk: 100
+          availability_vs_cost: balanced
+          availability_zones:
+            - name: us-east-1a
+            - name: us-east-1b
+            - name: us-east-1c
+            - name: us-east-1d
+            - name: us-east-1e
+            - name: us-east-1f
+
+          image_id: ami-064860cfd153ba574
+          fallback_to_od: true
+          tags:
+          - Creator: Raghavendra
+          - Environment: Dev
+          key_pair: sigmoid_lamp
+          max_size: 4
+          min_size: 2
+          target: 2
+          unit: instance
+          monitoring: True
+          name: sig_lamp_raghavendra
+          on_demand_instance_type: t2.micro
+          product: Linux/UNIX
+          load_balancers: 
+            - ELB-sigmoid-lamp
+          security_group_ids:
+            - sg-0e97d674288fe6447
+          spot_instance_types:
+            - t2.micro
+          do_not_update:
+            - image_id
+            - target
+          up_scaling_policies:
+            - policy_name: test-scaling-policies-1
+              namespace: AWS/EC2
+              metric_name: CPUUtilization
+              statistic: average
+              unit: percent
+              cooldown: 120
+              threshold: 70
+              source: cloudWatch
+              dimensions:
+                - name: InstanceId
+              evaluation_periods: 5
+              period: 300
+              action_type: adjustment
+              adjustment: 1
+          down_scaling_policies:
+            - policy_name: test-scaling-policies-1
+              namespace: AWS/EC2
+              metric_name: CPUUtilization
+              statistic: average
+              unit: percent
+              cooldown: 120
+              threshold: 50
+              source: cloudWatch
+              dimensions:
+                - name: InstanceId
+              evaluation_periods: 5
+              period: 300
+              action_type: percentageAdjustment
+              adjustment: 20
+      register: result
+    - debug: var=result
