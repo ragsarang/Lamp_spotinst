@@ -2,7 +2,7 @@
   tasks:
     - name: create elastigroup
       spotinst_aws_elastigroup:
-          token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6OTYyOCwib2lkIjo2MDYwNzk4NjgxMzgsInJvbGUiOjIsImV4cCI6MTUzNTcyMzEwOCwiaWF0IjoxNTM1NzE1OTA4fQ.7xsYohg-J5qYETMfAC_MynLtmRMbNui9a7xXIhgMUiQ'
+          token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6OTYyOCwib2lkIjo2MDYwNzk4NjgxMzgsInJvbGUiOjIsImV4cCI6MTUzNTczMDM5NywiaWF0IjoxNTM1NzIzMTk3fQ.baG5xhKLfq7SRXUrMEjU5YGO7Wh9UKmyJmi9FL0odiQ'
           account_id: act-8b4f6c91
           state: present
           risk: 100
@@ -31,6 +31,8 @@
           product: Linux/UNIX
           load_balancers: 
             - ELB-sigmoid-lamp
+          target_group_arns:
+            - 'arn:aws:elasticloadbalancing:us-east-1:410187619183:targetgroup/sigmoid-webservers/3c6ff47cfee5a11f'
           security_group_ids:
             - sg-0e97d674288fe6447
           spot_instance_types:
