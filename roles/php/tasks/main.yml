@@ -1,6 +1,7 @@
 ---
-- name: Install php-fpm and deps
+- name: Install php and deps
   yum: name={{ item }} state=present
   with_items:
     - php
     - php-mysql
+    - httpd

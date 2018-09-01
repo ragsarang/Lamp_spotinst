@@ -1,5 +1,3 @@
-- hosts: localhost
-  tasks:
     - name: create elastigroup
       spotinst_aws_elastigroup:
           token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6OTYyOCwib2lkIjo2MDYwNzk4NjgxMzgsInJvbGUiOjIsImV4cCI6MTUzNTczMDM5NywiaWF0IjoxNTM1NzIzMTk3fQ.baG5xhKLfq7SRXUrMEjU5YGO7Wh9UKmyJmi9FL0odiQ'
