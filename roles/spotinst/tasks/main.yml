@@ -1,6 +1,9 @@
+---
+- hosts: local
+  tasks:    
     - name: create elastigroup
       spotinst_aws_elastigroup:
-          token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6OTYyOCwib2lkIjo2MDYwNzk4NjgxMzgsInJvbGUiOjIsImV4cCI6MTUzNTczMDM5NywiaWF0IjoxNTM1NzIzMTk3fQ.baG5xhKLfq7SRXUrMEjU5YGO7Wh9UKmyJmi9FL0odiQ'
+          token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcG90aW5zdCIsInVpZCI6OTYyOCwib2lkIjo2MDYwNzk4NjgxMzgsInJvbGUiOjIsImV4cCI6MTUzNTkxOTQ1NCwiaWF0IjoxNTM1OTEyMjU0fQ.UhsmWvTdxj2cQD5sYhe-FlxHODY5cWzd-PZYKlsr0w4'
           account_id: act-8b4f6c91
           state: present
           risk: 100
@@ -13,7 +16,7 @@
             - name: us-east-1e
             - name: us-east-1f
 
-          image_id: ami-064860cfd153ba574
+          image_id: ami-04939928129dbe228
           fallback_to_od: true
           tags:
           - Creator: Raghavendra
